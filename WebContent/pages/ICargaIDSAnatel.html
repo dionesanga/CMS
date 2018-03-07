@@ -1,0 +1,65 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div ng-controller="cargaIdsAnatelController as controller" style="position:absolute;">
+
+	<div class="lbl-cabecalho">Carga IDs Anatel</div>
+	<div style="width: 100% !important">
+		<!-- Message -->
+		<div class="alert alert-success" ng-show="vShowMessage"
+			style="width: 100% !important">
+			<strong>{{vMessage}}</strong>
+		</div>
+		<div class="alert alert-danger" ng-show="vShowMessageError"
+			style="width: 100% !important">
+			<strong>{{vMessage}}</strong>
+		</div>
+		<!-- text area para informar as ids -->
+		<div style="width: 800px !important;" ng-show="showTextArea">
+			<label for="txtCargas">Informe as IDs que devem ser
+				carregadas!</label>
+			<textarea rows="4" class="form-control" ng-model="controller.ids"
+				id="txtCargas" cols="50" placeholder="Cole aqui as IDs!"></textarea>
+		</div>
+		<!-- btn carregar -->
+		<button type="button" class="btn btn-primary" ng-show="showBtnLoad"
+			style="margin-top: 20px;" ng-click="controller.carregarTable()">
+			<i class="icon-arrow-right"></i> Carregar IDs!
+		</button>
+
+		<!-- btn de consulta -->
+		<button type="button" class="btn btn-primary" ng-show="showBtnValida"
+			style="margin-top: 20px;" ng-click="controller.callValidarIDs()">
+			<i class="icon-arrow-right"></i> Validar IDs!
+		</button>
+
+		<!-- table de consulta/visualização -->
+		<div class="table-responsive"
+			style="min-width: 800px; padding-top: 30px">
+			<table border="1" ng-show="controller.idsList.length"
+				class="table table-hover"
+				style="width: 600px !important; float: left;">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Em banco de dados</th>
+						<th>Chamado Aberto</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in controller.idsList">						
+						<td>{{c.id}}</td>
+						<td ng-show={{!c.existMis}}>Não</td>
+						<td ng-show={{c.existMis}}>Sim</td>
+						<td>{{c.ultRequest.request}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<button type="submit" ng-show="showBtnExecute" class="btn btn-success"	
+				ng-click="controller.callStartCargaAnatel()">Executar carga!</button>
+				
+			<button type="submit" ng-show="showBtnCancel" class="btn btn-primary"	
+				ng-click="controller.cancelCarga()">Cancelar</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,215 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div ng-controller="RoteamentoController as controller">
+
+	<div class="lbl-cabecalho">Parametrização de Roteamentos</div>
+	<div style="width:100% !important">
+		<!-- Menu inicial -->
+		<a href="#roteamento" style="color:white;" ng-click="controller.defaults()">
+			<div class="divLink" ng-show="vBtnInicio">			
+				Início
+			</div>
+		</a>
+		
+		<a href="#roteamento" style="color:white;" ng-click="controller.activeCanaisAndNewCanal()">
+			<div class="divLink" ng-show="vBtnCriarRot">			
+				Desejo cadastrar um novo roteamento!
+			</div>
+		</a>
+		<a href="#roteamento" type="button" style="color:white" ng-click="controller.activeCanais()">
+			<div class="divLink" ng-show="vBtnAlterarRot">
+				Desejo configurar um roteamento!
+			</div>
+		</a>
+		<div id="alertaWarning" class="alert alert-warning alert-dismissable" ng-show="vShowMessage">
+		  <a class="close" aria-label="close" onclick="$('.alert').hide()">&times;</a>
+		  <strong>{{message}}</strong>
+		</div>
+		<div id="alertaError" class="alert alert-error alert-dismissable" ng-show="vShowError">
+		  <a class="close" aria-label="close" onclick="$('.alert').hide()">&times;</a>
+		  <strong>{{message}}</strong>
+		</div>
+		<!-- Menu inicial -->
+		<!-- Tabela de canais -->
+		<span ng-show="vShowCanais || vShowNewCanal" style="font-weight: bold;">Selecione uma área!</span>
+		<div class="table-responsive" style="min-width: 800px;">
+			<table border="1" ng-show="vShowCanais"	class="table table-hover" style="width:400px !important; float:left;">
+				<thead>
+					<tr>
+						<th style="width:25px">ID</th>
+						<th>Canal</th>
+						<th style="width:40px">Situação</th>
+						<th style="width:40px">Deletar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in controller.canais" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+						<td>{{$index}}</td>
+						<td>{{c.canal}}</td>
+						<td>{{c.situacao}}</td>
+						<td><a href="#roteamento" ng-click="controller.removerCanal($index)">Excluir</a></td>						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+				
+		<button type="button" ng-click="controller.canalAtivo()" ng-show="vShowNewCanal" class="btn btn-info" data-toggle="modal" data-target="#myModal">Click aqui para cadastrar uma nova área!</button>			
+		
+		<!-- Tabela de roteamentos -->
+		<div class="table-responsive" style="margin-top:25px;">
+			<table border="1" ng-show="vShowRoteamentos" class="table table-hover" style="width:400px !important">
+				<thead>
+					<tr>
+						<th style="width:25px">ID</th>
+						<th>Nome</th>
+						<th style="width:40px">Situação</th>
+						<th style="width:40px">Deletar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="r in controller.canais.roteamentos" ng-class="{'selected':$index == selectedRowRoteamento}" ng-click="setClickedRowRoteamento($index)">
+						<td>{{$index}}</td>
+						<td>{{r.nome}}</td>
+						<td>{{r.situacao}}</td>
+						<td><a href="#roteamento" ng-click="controller.removerRoteamento($index)">Excluir</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<button type="button" ng-click="controller.roteamentoAtivo()" ng-show="vShowNewRoteamento" class="btn btn-info" data-toggle="modal" data-target="#myModal1">Click aqui para cadastrar um novo roteamento!</button>
+		
+		<!-- Roteamento -->
+		<div ng-show="vShowCadRoteamento">
+			<!-- consulta SQL para buscar os chamados -->
+			<div style="width:800px !important;">
+	       		<label for="txtConsulta">Buscar os chamados</label>
+	 			<textarea rows="4" class="form-control" ng-model="controller.roteamento.consulta" id="txtConsulta" cols="50" placeholder="Escreva a consulta SQL aqui!"></textarea>
+	       	</div>
+	       	
+	       	<!-- consulta SQL para a fidelizacao por documento -->
+	       	<div style="width:800px !important;">
+	       		<label for="txtFidelizacao">Fidelização</label>
+	 			<textarea rows="4" class="form-control" ng-model="controller.roteamento.fidelizacao" id="txtFidelizacao" cols="50" placeholder="Escreva a consulta SQL aqui!"></textarea>
+	       	</div>
+	       	
+	       	<!-- marcar o tipo de distribuição -->
+	       	<div style="width:800px !important;">
+	       		<label>Tipo de distribuição</label>
+	       		<div class="dropdown">
+					<select ng-model="controller.roteamento.tpDistribuicao" class="form-control" id="txtSituacao"  style="width:400px !important" title="Informe o tipo de distribuição!">
+					    <option value="SEQUENCIA" >Sequência</option>
+					    <option value="QUANTIDADE">Quantidade</option>
+					</select>							
+				</div>
+	       	</div>
+	       	
+	       	<!-- A consulta SQL para levantar os chamados pode ter um filtro de data que é informado nesse campo (RESLTIME ou OPENDATE) -->
+	       	<div style="width:800px !important;">
+	       		<label for="txtFilterDate">Filtro por data</label>
+	 			<div class="dropdown">
+					<select ng-model="controller.roteamento.filterDateByField" class="form-control" id="txtFilterDate" style="width:400px !important" title="Informe o campo para filtrar os chamados por data!">
+					    <option value="OPENDATE">Abertura</option>
+					    <option value="RESLTIME">Vencimento</option>
+					</select>							
+				</div>
+	       	</div>
+	       	
+	       	<!-- Situacao -->
+	       	<div style="width:800px !important;">
+	       		<label for="txtSituacao">Situação</label>
+	       		<div class="dropdown">
+					<select ng-model="controller.roteamento.situacao" class="form-control" id="txtSituacao" style="width:400px !important" title="Informe uma situação!">
+					    <option value="Ativo">Ativo</option>
+					    <option value="Inativo">Inativo</option>
+					</select>							
+				</div>
+	       	</div>
+	       	<!-- botoes de gravar -->
+	       	<div class="modal-footer" style="margin-bottom:50px;">
+		      	<button type="submit" class="btn btn-success" ng-click="controller.gravar()" onclick="$('.alert').show()">Gravar</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+		    </div>
+       	</div>
+		<!-- Modal novo canal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-center">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Inserir nova área!</h4>
+		      </div>
+		      <div>
+	        	<div class="alert alert-success alert-dismissable" ng-show="vShowMessage1">
+	        		<a href="#roteamento" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  		{{message}}
+		  		</div>
+			  </div>
+		      <div class="modal-body">
+		        <form method="post" enctype="multipart/form-data">
+		        	<div class="form-group">
+		        		<label for="nameArea">Nome da área</label>
+    					<input type="text" class="form-control" ng-model="controller.newCanal.canal" id="nameArea" placeholder="Digite o nome da área!" style="width:400px !important">
+		        	</div>
+		        	
+		        	<div class="form-group">
+		        		<label for="sel1">Situação</label>
+						<div class="dropdown">
+							<select ng-model="controller.newCanal.situacao" class="form-control" id="sel1" style="width:110px" title="Informe uma situação!">
+							    <option selected value="Ativo">Ativo</option>
+					    		<option value="Inativo">Inativo</option>
+							</select>
+						</div>
+		        	</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		      	<button type="submit" class="btn btn-dark" ng-click="controller.callGravarNewCanal()">Gravar</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		
+		  </div>
+		</div>
+		<!-- Modal novo roteamento -->
+		<div id="myModal1" class="modal fade" role="dialog">
+		  <div class="modal-center">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Inserir novo roteamento!</h4>
+		      </div>
+		      <div class="modal-body">
+			    <div class="alert alert-success" ng-show="vMessageCadRoteamento" ng-class="{fade:doFade}">
+				  	<a href="#roteamento" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					{{message}}
+			  	</div>
+		        <form method="post" enctype="multipart/form-data">
+		        	<div class="form-group">
+		        		<label for="nameArea">Nome da área</label>
+    					<input type="text" class="form-control" ng-model="controller.canal.canal" id="nameArea" placeholder="Digite o nome da área!" style="width:400px !important" readonly="readonly">
+		        	</div>
+		        	<div class="form-group">
+		        		<label for="nameRot">Nome do roteamento</label>
+    					<input type="text" class="form-control" ng-model="controller.roteamento.nome" id="nameRot" placeholder="Digite o nome do roteamento!" style="width:400px !important">
+		        	</div>
+		        	<div class="form-group">
+		        		<label for="sel1">Situação</label>
+						<div class="dropdown">
+							<select ng-model="controller.roteamento.situacao" class="form-control" id="sel1" style="width:110px" title="Informe uma situação!">
+							    <option selected value="Ativo">Ativo</option>
+					    		<option value="Inativo">Inativo</option>
+							</select>							
+						</div>
+		        	</div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		      	<button type="submit" class="btn btn-dark" ng-click="controller.callGravarNewRoteamento()">Gravar</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		
+		  </div>
+		</div>
+	</div>
+</div>

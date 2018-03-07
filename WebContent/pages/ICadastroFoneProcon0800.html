@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="scotchApp">
+<head>
+	<title>ODC Admin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    <link rel="stylesheet" href="../static/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/font-awesome.css" />      
+    <link rel="stylesheet" href="../static/style.css"/>
+    
+    <script src="static/angular.min.js"></script>
+    <script src="static/angular-route.js"></script>
+    <script src="static/app.js"></script>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+          
+</head>
+<body ng-controller="cadastroFoneProcon0800Controller">
+<!-- HEADER AND NAVBAR -->
+    <header class="main-header">
+		<div style="width:266px; background-color:#286090; height:40px;padding-left: 15px;padding-top: 8px;">
+			<b><span style="font-size:20px">ODC Admin</span></b>
+		</div>
+	</header>
+	<!-- menu lateral -->	
+	<div class="menu-lateral">
+		<div class="navbar-custom-menu">
+		</div>
+	</div>
+	<!-- conteudo -->
+	<div style="width:inherit;">
+       <!-- MAIN CONTENT AND INJECTED VIEWS -->
+		<div class="main-content" >
+			<div class="lbl-cabecalho">Cadastro de Contatos - Procon 0800</div>
+			<div style="width:800px !important;">       		
+	       		<div class="dropdown">
+					<select ng-model="controller.opcao" class="form-control" id="txtDemanda"  style="width:200px !important" title="Informe o tipo da demanda!">
+					    <option value="Incluir" >Incluir</option>
+					    <option value="Consultar">Consultar</option>				    
+					</select>							
+				</div>
+	       	</div>
+	       	
+	       	<!-- numero do contato -->
+	       	<div style="width:200px !important;">
+	       		<label for="txtCenAtual">Informe o número do contato</label>
+	 			<input type="text" style="width:200px !important;" ng-required="string" class="form-control" ng-model="controller.item.numFone" id="txtCenAtual" placeholder="Escreva o número do contato!"/>
+	       	</div>
+	       	
+	       	<!-- uf -->
+	       	<div style="width:200px !important;">
+	       		<label for="txtUF">Informe a UF do Procon</label>       		
+	       		<div class="dropdown">
+					<select ng-model="controller.item.uf" class="form-control" id="txtUF"  style="width:200px !important" title="Informe a UF!">
+
+					</select>							
+				</div>
+	       	</div>
+	       	
+	       	<!-- cidade -->
+	       	<div style="width:200px !important;">
+	       		<label for="txtCidade">Informe a Cidade do Procon</label>       		
+	       		<div class="dropdown">
+					<select ng-model="controller.item.city" class="form-control" id="txtCidade"  style="width:200px !important" title="Informe a Cidade!">
+
+					</select>							
+				</div>
+	       	</div>
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ODC Admin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" href="../static/bootstrap.min.css" />
+	<link rel="stylesheet" href="../static/font-awesome.css" />
+	<link rel="stylesheet" href="../static/style.css" />
+	
+	<script src="../static/angular.min.js"></script>
+	<script src="../static/angular-route.js"></script>
+	<script src="../static/app.js"></script>
+</head>
+<body ng-app="scotchApp">
+	<div ng-controller="mainController">
+		<!-- HEADER AND NAVBAR -->
+		<header class="main-header">
+			<div
+				style="width: 266px; background-color: #286090; height: 40px; padding-left: 15px; padding-top: 8px;">
+				<b><span style="font-size: 20px">ODC Admin</span></b>
+			</div>
+		</header>
+
+		<div class="navbar-custom-menu">
+			<ul class="main-menu">
+				<li><b>MENU</b></li>
+				<li><a href="/CMS/pages/IGerarRespostas.xhtml"><span
+						class="icn-gerar-resposta">Gerar respostas</span></a></li>
+				<li><a href="/CMS/pages/IFecharMassivo.xhtml"><span
+						class="icn-close">Fechar massivo</span></a></li>
+				<li><a href="/CMS/pages/ICargaMis.xhtml"><span
+						class="icn-carga-mis">Carga MIS</span></a></li>
+				<li><a href="/CMS/pages/IIdsPendentes.xhtml"><span
+						class="icn-ids-pendentes">ID´s pendentes</span></a></li>
+			</ul>
+		</div>
+
+		<!-- MAIN CONTENT AND INJECTED VIEWS -->
+		<div id="imageonly">
+			TESTE
+			<!-- image is from Subtle Patterns -->
+		</div>
+		<div id="main">
+
+			{{ message }}
+			<div ng-view></div>
+			<!-- angular templating -->
+			<!-- this is where content will be injected -->
+		</div>
+	</div>
+</body>
+</html>

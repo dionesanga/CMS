@@ -1,0 +1,96 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div ng-controller="abrirController as controller" style="position:absolute;">
+	<div class="lbl-cabecalho">Abertura de Ticket</div>
+	<div style="width: 100% !important">
+		<!-- Message -->
+		<div class="alert alert-success" ng-show="vShowMessage"
+			style="width: 100% !important">
+			<strong>{{vMessage}}</strong>
+		</div>
+		
+		<!-- area -->
+       	<div style="width:800px !important;">
+       		<label>Área</label>
+       		<div class="dropdown">
+				<select ng-model="controller.ticket.area" class="form-control" id="txtArea"  style="width:200px !important" title="Informe a área!">
+				    <option value="TI" >TI</option>
+				    <option value="Relatórios">Relatórios</option>				    
+				</select>							
+			</div>
+       	</div>
+		
+		<!-- canal -->
+       	<div style="width:800px !important;">
+       		<label>Canal</label>
+       		<div class="dropdown">
+				<select ng-model="controller.ticket.canal" class="form-control" id="txtCanal"  style="width:200px !important" title="Informe o canal!">
+				    <option value="Anatel" >Anatel</option>
+				    <option value="Procon 0800">Procon 0800</option>
+				    <option value="CIP">CIP</option>
+				    <option value="Redes Sociais">Redes Sociais</option>
+				    <option value="Outros">Outros</option>
+				</select>							
+			</div>
+       	</div>
+       	
+       	<!-- tipo demanda -->
+       	<div style="width:800px !important;">
+       		<label>Canal</label>
+       		<div class="dropdown">
+				<select ng-model="controller.ticket.tipo" class="form-control" id="txtDemanda"  style="width:200px !important" title="Informe o tipo da demanda!">
+				    <option value="Alteração Sistêmica" >Alteração Sistêmica</option>
+				    <option value="Dúvida">Dúvida</option>
+				    <option value="Erro">Erro</option>
+				    <option value="Novo Fluxo">Novo Fluxo</option>
+				</select>							
+			</div>
+       	</div>
+       	
+       	<!-- criticidade -->
+       	<div style="width:800px !important;">
+       		<label>Criticidade</label>
+       		<div class="dropdown">
+				<select ng-model="controller.ticket.criticidade" class="form-control" id="txtCriticidade"  style="width:200px !important" title="Informe a criticidade!">
+				    <option value="Baixa" >Baixa</option>
+				    <option value="Média">Média</option>
+				    <option value="Alta">Alta</option>
+				</select>							
+			</div>
+       	</div>
+       	
+       	<!-- situação -->
+       	<div style="width:800px !important;">
+       		<label>Situação</label>
+       		<div class="dropdown">
+				<select ng-model="controller.ticket.situacao" class="form-control" id="txtSituacao"  style="width:200px !important" title="Informe a situação!">
+				    <option value="Novo" >Novo</option>
+				    <option value="Aguardando Usuário">Aguardando Usuário</option>
+				    <option value="Concluído">Concluído</option>
+				    <option value="Cancelado">Cancelado</option>
+				    <option value="Em Execução">Em execução</option>
+				</select>							
+			</div>
+       	</div>
+       	
+       	<!-- Data Abertura-->
+       	<div style="width:800px !important;">
+       		<label for="txtDtPrazo">Data Abertura</label>
+       		<div class="input-group date" style="width:200px !important">
+				<input type="text" class="form-control" ng-model="controller.ticket.dtAbertura">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+       	</div>
+       	
+       	<!-- cenario atual -->
+       	<div style="width:800px !important;">
+       		<label for="txtCenAtual">Detalhe o cenário atual</label>
+ 			<textarea rows="4" class="form-control" ng-model="controller.ticket.cenAtual" id="txtCenAtual" cols="50" placeholder="Escreva o cenário atual aqui!"></textarea>
+       	</div>
+       	
+       	<!-- cenario desejado -->
+       	<div style="width:800px !important;">
+       		<label for="txtCenDes">Descreva o cenário desejado</label>
+ 			<textarea rows="4" class="form-control" ng-model="controller.ticket.cenDesejado" id="txtCenDes" cols="50" placeholder="Escreva o cenário desejado aqui!"></textarea>
+       	</div>
+	</div>
+</div>

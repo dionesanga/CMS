@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div ng-controller="CargaMisController as controller">
+
+	<div class="lbl-cabecalho">Carga MIS</div>
+	<div style="width:100% !important">
+		<div class="alert alert-success" ng-show="vShowMessage" style="width:100% !important">
+		  <strong>{{vMessage}}</strong>
+		</div>
+		<button type="button" class="btn btn-primary" style="margin-top:20px;" ng-click="controller.callCargaMis()">
+			<i class="icon-arrow-right"></i> Forçar carga da MIS!
+		</button>
+	</div>
+</div>

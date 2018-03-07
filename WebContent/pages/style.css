@@ -1,0 +1,248 @@
+.ui-widget {  
+    font-size: 12px !important;  
+}
+
+*  {
+	margin:0;
+	padding:0;
+}
+
+html, body {
+	height:100%;
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+	background-color: #eaeaea !important;
+	font-size: 12px !important;	
+}
+
+input{
+    border:solid 1px #aaa;
+    height:15px;
+}
+
+.ui-inputfield {
+    border-radius:0px !important;
+    box-shadow: none !important;
+    border:solid 1px #aaa !important;
+}
+
+.header {
+	width:100%;
+	background-color: green;
+}
+
+.semBorda tr, .semBorda td {  
+    border: none !important;  
+}
+.main-content{
+	float:left;
+	padding-left:20px !important;
+}
+.lbl-cabecalho{
+	font-size:20px;
+	min-height: 40px;
+	background-color:#dcdcdc;
+	
+}
+.colored {
+	background: white;
+	border: 1px solid white;
+}
+
+.labelCadastro{
+	display: block;
+	min-width: 160px;	
+	text-align: right;
+	font-family: Arial !important;
+}
+
+.divTipificacao{	
+	display: block;
+	min-width: 100px;		
+	text-align: right;
+	font-family: Arial !important;	
+}
+
+.divTipificacaoPerfil{	
+	display: block;
+	min-width: 100px;
+	font-family: Arial !important;	
+}
+
+.divAutomidia{
+	min-height: 150px;
+	width: 100%;
+	padding-top: 50px;
+	padding-left: 250px;
+}
+
+.buttonCadastroEsq{		
+	margin-top: 30px !important;
+	margin-bottom: 20px !important;
+	margin-left: 120px !important;
+	margin-right: 40px !important; 
+}
+
+.buttonCadastroDir{
+	margin-top: 30px !important; 
+	margin-bottom: 15px !important;
+	margin-left: 30px !important;	 
+}
+
+.divButton{
+	margin-top: 35px;
+	border-top: 2px solid #dcdccc;	
+	background-color: #F8F8FF;
+}
+
+#fundo{	
+	height: auto;	
+	min-width: 1000px;	
+}
+
+#wrapper{	
+	padding-left:50px;
+	padding-right:50px;	
+	height: 80px;
+	margin: auto;
+}
+
+#logo-gvt{
+	width: 170px;
+	height: 49px;
+	float: left;	
+	background-image: url("#{resource['images/vivo-logo.png']}");
+	margin-top : 15px;	
+}
+#logo-vivo{
+	width: 60px;
+	height: 52px;
+	float: right;	
+	background-image: url("#{resource['images/logo-vivo.jpg']}");
+	margin-top : 15px;
+}
+#logo-redes-sociais{
+	width: 32px;
+	height: 52px;
+	background-image: url("#{resource['images/facebook2.png']}");
+	background-repeat:no-repeat;
+	float:left;
+}
+#logo-redes-sociais2{
+	width: 32px;
+	height: 40px;
+	background-image: url("#{resource['images/twitter2.png']}");
+	background-repeat:no-repeat;
+	float:left;
+}
+#logo-redes-sociais3{
+	width: 32px;
+	height: 40px;
+	background-image: url("#{resource['images/male-reporter.png']}");
+	background-repeat:no-repeat;
+	float:right;
+}
+
+#titulo{
+	/*border: solid 1px black;*/	
+	margin-top: 12px;
+	text-align: center;	
+	font-size:47px;
+	color:#00547A;	
+	font-weight: bold;
+	width: 150px;
+	float: left;
+	font-family: Arial !important;
+}
+
+#fundo-menu{
+	height: 3px;
+	background-color: #00547A;
+}
+
+#wrapper-menu{
+	padding-top:1px;	
+	height: 40px;
+	margin: auto;	
+}
+.main-header{
+	min-height:40px;
+	width:100%;
+	background-color:#337ab7 !important;
+	color:#fff;
+}
+.main-footer{
+	min-height:35px;
+	width:100%;
+	background-color:#0489B1;
+	color:#fff;
+	
+}
+.menu-lateral{
+	float: left;
+	min-height: 100%;
+	background-color: #333333;
+}
+.navbar-custom-menu{
+	float: left;    
+    background-color: #333333;
+    width:266px;
+    height:100%;
+}
+.navbar-custom-menu ul{
+	width:260px;
+	height: 100%;
+}
+.navbar-custom-menu li{	
+	padding-left:10px;
+}
+.main-menu{
+	padding-top:20px;
+	color:#fff;	
+}
+.main-menu > li > a { 
+	display: block;
+	color:#fff;
+	padding-top:10px;
+	padding-left:5px;
+	border-bottom:1px solid #686868 !important;
+	height:40px;
+}
+.main-menu > li > a:hover {
+	background-color:#3f3e3e;
+	border-left:4px solid #337ab7;
+}
+a {
+  color: #3c8dbc;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #72afd2;
+}
+.icn-gerar-resposta{
+  padding-left:10px;
+  background-repeat:no-repeat;	
+  padding-bottom:4px !important;
+}
+.icn-close{  
+  padding-left:10px;  
+  background-repeat:no-repeat;	
+  padding-bottom:4px !important;
+}
+.icn-carga-mis{
+  padding-left:10px;
+  background-repeat:no-repeat;	
+  padding-bottom:4px !important;
+}
+.icn-ids-pendentes{
+  padding-left:10px;
+  background-repeat:no-repeat;
+  padding-bottom:4px !important;
+}
+.content-wrapper{	
+	height:100%;
+	width:100%;
+}

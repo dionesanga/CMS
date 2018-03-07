@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="scotchApp">
+<head>
+	<title>ODC Admin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+    <link rel="stylesheet" href="static/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/font-awesome.css" />      
+    <link rel="stylesheet" href="static/style.css"/>
+    
+    <script src="static/angular.min.js"></script>
+    <script src="static/angular-route.js"></script>
+    <script src="static/app.js"></script>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+          
+</head>
+<body ng-controller="mainController">
+<!-- HEADER AND NAVBAR -->
+    <header class="main-header">
+		<div style="width:266px; background-color:#286090; height:40px;padding-left: 15px;padding-top: 8px;">
+			<b><span style="font-size:20px">ODC Admin</span></b>
+		</div>
+	</header>
+	<div class="menu-lateral">
+		<div class="navbar-custom-menu">
+			<ul class="main-menu">
+				<li><b>MENU</b></li>
+				<li><a href="#gerarRespostas">	<img src="static/nut-icon.png" />					<span class="icn-gerar-resposta">Gerar respostas</span></a></li>
+				<li><a href="#gerarTrimestre">	<img src="static/round-location-indicator.png" />	<span class="icn-ids-pendentes">Gerar Trimestre</span></a></li>
+				<li><a href="#fecharMassivo">	<img src="static/close.png"/>						<span class="icn-close">Fechar massivo</span></a></li>
+				<li><a href="#cargaMis">		<img src="static/snowflake.png" />					<span class="icn-carga-mis">Carga MIS</span></a></li>
+				<li><a href="#roteamento">		<img src="static/two-diagonal.png" />				<span class="icn-carga-mis">Roteamento</span></a></li>
+				<li style="margin-bottom:40px"><a href="#cargaIDsAnatel">	<img src="static/phone-call.png" />					<span class="icn-carga-mis">Carga ID´s Anatel</span></a></li>
+				
+				<li><a href="http://localhost:7001/CMS/ITickets.html#/home">			<img src="static/ticket.png" />					<span class="icn-carga-mis">Gestão de Tickets</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- conteudo -->
+	<div style="width:inherit;">
+       <!-- MAIN CONTENT AND INJECTED VIEWS -->
+		<div class="main-content" ng-view></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div ng-controller="gerarTrimestreController as controller">
+	<div class="lbl-cabecalho">Gerar ID´s Trimestre</div>
+		
+	<form method="post" enctype="multipart/form-data">
+		<div style="width:100% !important; margin-top:20px;">
+			<input style="min-height:30px" ng-model="fileinput" id="fileuplo" class="inline-block" type="file" name="file" file-reader="fileContent" accept=".csv">
+			
+			<button type="submit" class="btn btn-primary" style="margin-top:20px;" ng-click="controller.callContinueFileUpload()">
+				<i class="icon-arrow-right"></i> Carregar
+			</button>
+			
+			<button type="button" class="btn btn-primary" style="margin-top:20px; margin-right:10px" ng-click="controller.callExecuteGerarTrimestre()" ng-show="controller.ids.length">
+				<i class="icon-arrow-right"></i> Executar
+		    </button>
+		    <br/>
+		    <span ng-show="controller.ids.length"><b>Foram carregadas {{controller.ids.length}} ID´s!</b></span>		    
+		    
+		    <span style="margin-top: 20px; display:block;"><b>Exemplo de formatação do arquivo CSV!</b></span>
+		    <table border="1" class="table table-hover" style="width:400px !important; float:left;">
+		    	<thead>
+					<tr>
+						<th>Serviço</th>
+						<th>ID</th>
+						<th>Situação</th>
+						<th>Resposta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>BANDA LARGA</td>
+						<td>1234.2018</td>
+						<td>PROCEDENTE</td>
+						<td>Resposta</td>
+					</tr>
+					<tr>
+						<td>TV</td>
+						<td>1233.2018</td>
+						<td>IMPROCEDENTE</td>
+						<td>Resposta</td>
+					</tr>
+					<tr>
+						<td>FIXA</td>
+						<td>1232.2018</td>
+						<td>IMPROCEDENTE</td>
+						<td>Resposta</td>
+					</tr>
+				</tbody>
+		    </table>
+		</div>
+	</form>
+</div>
